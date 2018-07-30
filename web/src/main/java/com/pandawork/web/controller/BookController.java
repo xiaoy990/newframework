@@ -38,6 +38,7 @@ public class BookController extends AbstractController {
     public String doUptade(Book book){
         try{
             bookService.update(book);
+            System.out.println("1");
         }
         catch (Exception e){
             e.printStackTrace();
