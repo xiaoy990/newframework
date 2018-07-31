@@ -16,4 +16,6 @@ public interface BookMapper {
     public boolean updateBook(@Param("book") Book book) throws Exception;
 
     public List<Book> searchBook(String bookname) throws Exception;
+
+    public boolean pubtest(@Param("pub") String pub,@Param("imgurl") String url);
 }

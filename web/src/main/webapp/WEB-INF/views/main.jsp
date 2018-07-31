@@ -40,7 +40,8 @@
     </table>
 </div>
 
-<form action="${pageContext.request.contextPath }/Book/testfile" method="post" enctype="multipart/form-data">
+<form action="/image/addimg" method="post" enctype="multipart/form-data">
+    <input type="text" name="user">
     <h2>文件上传</h2>
     文件:<input type="file" name="uploadFile"/><br/><br/>
     <input type="submit" value="上传"/>

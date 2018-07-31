@@ -24,10 +24,9 @@ public class BookController extends AbstractController {
     BookService bookService;
 
     @RequestMapping(value = "/testfile", method = RequestMethod.POST)
-    public String testFile(MultipartFile uploadFile, HttpSession session) throws Exception{
+    public String testFile(MultipartFile uploadFile, HttpSession session,String pub) throws Exception{
         //获取文件名作为保存到服务器的名称
         String filename = uploadFile.getOriginalFilename();
-
         String leftpath = session.getServletContext().getRealPath("images");
         //路径拼接
         File file = new File(leftpath,filename);

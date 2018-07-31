@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pandawork.mapper.ImageMapper">
+
+    <resultMap id="image" type="com.pandawork.common.entity.Image" >
+        <id property="id" column="id"/>
+        <result property="user" column="user"/>
+        <result property="image" column="image"/>
+    </resultMap>
+
+    <insert id="addImage" >
+      INSERT INTO t_images(user,image)
+      VALUES (#{image.user},#{image.image})
+    </insert>
+
+
+</mapper>
