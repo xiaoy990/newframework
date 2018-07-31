@@ -22,5 +22,13 @@
     <import resource="database-config.xml"></import>
     <import resource="mvc-config.xml"></import>
 
-
+    <!--文件上传配置-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--编码格式-->
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!--文件总大小-->
+        <property name="maxUploadSize" value="10485760000"></property>
+        <property name="maxInMemorySize" value="40960"></property>
+    </bean>
 </beans>

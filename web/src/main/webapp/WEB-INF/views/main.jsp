@@ -39,5 +39,12 @@
         <tr><td><a href="/Book/toadd"><button>添加</button></a></td></tr>
     </table>
 </div>
+
+<form action="${pageContext.request.contextPath }/Book/testfile" method="post" enctype="multipart/form-data">
+    <h2>文件上传</h2>
+    文件:<input type="file" name="uploadFile"/><br/><br/>
+    <input type="submit" value="上传"/>
+</form>
+
 </body>
 </html>

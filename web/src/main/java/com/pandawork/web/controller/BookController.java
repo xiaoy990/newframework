@@ -10,7 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
+
+import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.List;
 
 @Controller
@@ -18,6 +22,19 @@ import java.util.List;
 public class BookController extends AbstractController {
     @Autowired
     BookService bookService;
+
+    @RequestMapping(value = "/testfile", method = RequestMethod.POST)
+    public String testFile(MultipartFile uploadFile, HttpSession session) throws Exception{
+        //获取文件名作为保存到服务器的名称
+        String filename = uploadFile.getOriginalFilename();
+
+        String leftpath = session.getServletContext().getRealPath("images");
+        //路径拼接
+        File file = new File(leftpath,filename);
+        System.out.println(file);
+        uploadFile.transferTo(file);
+        return "main";
+    }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public String searchBook(String sname,Model model){
